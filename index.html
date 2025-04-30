@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirana Channel Insights Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .chart-container {
+            position: relative;
+            height: 300px; /* Adjust height as needed */
+            width: 100%;
+        }
+        /* Custom card styling */
+        .dashboard-card {
+            background-color: white;
+            border-radius: 0.75rem; /* Rounded corners */
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Subtle shadow */
+            transition: transform 0.2s ease-in-out;
+            display: flex; /* Use flexbox for better internal alignment */
+            flex-direction: column; /* Stack content vertically */
+        }
+        .dashboard-card:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        .dashboard-card-content {
+            flex-grow: 1; /* Allow content area to grow */
+        }
+        .kpi-value {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #1f2937; /* gray-800 */
+        }
+        .kpi-label {
+            font-size: 0.875rem; /* text-sm */
+            color: #6b7280; /* gray-500 */
+            margin-top: 0.25rem; /* mt-1 */
+        }
+        .section-title {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #111827; /* gray-900 */
+            margin-bottom: 1rem; /* mb-4 */
+            border-bottom: 2px solid #e5e7eb; /* border-gray-200 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            flex-shrink: 0; /* Prevent title from shrinking */
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Kirana Channel Insights Dashboard</h1>
+    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+        Visualizing the challenges and opportunities within India's vast Kirana store network for FMCG distribution, based on insights regarding market dynamics, visibility gaps, and the potential of AI solutions. (Data is illustrative based on provided text).
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="dashboard-card md:col-span-1 lg:col-span-1">
+            <h2 class="section-title">Market Overview</h2>
+            <div class="dashboard-card-content space-y-4">
+                <div class="text-center">
+                    <div class="kpi-value">~92.6%</div>
+                    <div class="kpi-label">Kirana Share of FMCG Sales (2023)</div>
+                </div>
+                 <div class="chart-container flex-grow" style="height: 200px;"> <canvas id="kiranaShareChart"></canvas>
+                </div>
+                <div class="text-center mt-4">
+                    <div class="kpi-value">12-15 M</div>
+                    <div class="kpi-label">Estimated Kirana Stores</div>
+                </div>
+                <div class="text-center mt-4">
+                    <div class="kpi-value">$220 B</div>
+                    <div class="kpi-label">Projected FMCG Market Size (2025)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card md:col-span-1 lg:col-span-1">
+            <h2 class="section-title">The Visibility Challenge</h2>
+            <div class="dashboard-card-content space-y-4">
+                <p class="text-sm text-gray-600 mb-4">Lack of secondary & tertiary sales data creates significant hurdles.</p>
+                <h3 class="font-semibold text-gray-700">Key Hurdles:</h3>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Massive Scale (12-15M fragmented stores)</li>
+                    <li>Low Technology Adoption at Retail Level</li>
+                    <li>Manual Processes & Limited Data Capture</li>
+                    <li>Data Silos (Brand, Distributor, Retailer)</li>
+                    <li>Complex Intermediary Layers</li>
+                    <li>High Cost-to-Serve</li>
+                </ul>
+                 <h3 class="font-semibold text-gray-700 mt-4">Estimated Costs of Poor Visibility:</h3>
+                 <div class="grid grid-cols-2 gap-4 text-center">
+                     <div>
+                         <div class="kpi-value text-red-600">High</div>
+                         <div class="kpi-label">Lost Sales due to Stockouts</div>
+                         <p class="text-xs text-gray-500">(Potential 65% reduction via AI)</p>
+                     </div>
+                      <div>
+                         <div class="kpi-value text-orange-600">High</div>
+                         <div class="kpi-label">Inventory Mismanagement Costs</div>
+                         <p class="text-xs text-gray-500">(Potential 15-20% reduction via AI)</p>
+                     </div>
+                 </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card md:col-span-2 lg:col-span-1">
+            <h2 class="section-title">AI Solution Potential</h2>
+            <div class="dashboard-card-content space-y-4">
+                <p class="text-sm text-gray-600 mb-4">AI agents offer enhanced visibility, prediction, and automation.</p>
+                <div class="grid grid-cols-2 gap-4 text-center">
+                     <div>
+                        <div class="kpi-value text-green-600">20-50%</div>
+                        <div class="kpi-label">Reduction in Forecast Errors</div>
+                    </div>
+                    <div>
+                        <div class="kpi-value text-green-600">15-20%</div>
+                        <div class="kpi-label">Reduction in Inventory Costs</div>
+                    </div>
+                    <div>
+                        <div class="kpi-value text-green-600">5-10%</div>
+                        <div class="kpi-label">Improvement in Fill Rates</div>
+                    </div>
+                     <div>
+                        <div class="kpi-value text-blue-600">~40%</div>
+                        <div class="kpi-label">Potential Productivity Gains</div>
+                    </div>
+                </div>
+                 <div class="mt-6 text-center">
+                    <div class="kpi-value">75%</div>
+                    <div class="kpi-label">Retailers Believing AI Agents are Essential Soon</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card md:col-span-2 lg:col-span-3">
+            <h2 class="section-title">Competitive Landscape: Kirana vs. Q-Commerce</h2>
+            <div class="dashboard-card-content">
+                <p class="text-sm text-gray-600 mb-4">The rise of data-driven Q-commerce intensifies the need for Kirana channel visibility.</p>
+                <div class="chart-container flex-grow"> <canvas id="marketShareTrendChart"></canvas>
+                </div>
+                <p class="text-xs text-center text-gray-500 mt-2">Projected FMCG Market Share Trend (Illustrative)</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Ensure charts are destroyed before re-rendering if script runs multiple times
+        if (window.kiranaShareChart instanceof Chart) {
+            window.kiranaShareChart.destroy();
+        }
+        if (window.marketShareTrendChart instanceof Chart) {
+            window.marketShareTrendChart.destroy();
+        }
+
+        // --- Chart Configurations ---
+
+        // 1. Kirana Share Doughnut Chart
+        const kiranaShareCtx = document.getElementById('kiranaShareChart').getContext('2d');
+        window.kiranaShareChart = new Chart(kiranaShareCtx, { // Assign to window object
+            type: 'doughnut',
+            data: {
+                labels: ['Kirana Stores', 'Other Channels (Modern Trade, E-commerce, Q-commerce)'],
+                datasets: [{
+                    label: 'FMCG Sales Share (2023)',
+                    data: [92.6, 7.4], // Based on text (92.6% Kirana)
+                    backgroundColor: [
+                        '#3b82f6', // blue-500
+                        '#e5e7eb'  // gray-200
+                    ],
+                    borderColor: [
+                        '#ffffff',
+                        '#ffffff'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%', // Makes it a doughnut chart
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                           boxWidth: 12,
+                           padding: 15
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 2. Market Share Trend Line Chart (Kirana vs Q-commerce)
+        const marketShareTrendCtx = document.getElementById('marketShareTrendChart').getContext('2d');
+        window.marketShareTrendChart = new Chart(marketShareTrendCtx, { // Assign to window object
+            type: 'line',
+            data: {
+                labels: ['2023', '2024', '2025', '2026', '2027', '2028'], // Years up to projection
+                datasets: [
+                    {
+                        label: 'Kirana Share (%)',
+                        data: [92.6, 91.8, 91, 90.2, 89.5, 88.8], // Illustrative decline towards <90% by 2028
+                        borderColor: '#3b82f6', // blue-500
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Q-commerce Share (%)',
+                        data: [5, 10, 18, 25, 32, 40], // Illustrative growth towards 40% by 2028 (adjusted start based on "single digits")
+                        borderColor: '#10b981', // emerald-500
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }
+                    // Could add 'Other Channels' as a third line if desired
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100, // Percentage scale
+                        title: {
+                            display: true,
+                            text: 'Market Share (%)'
+                        }
+                    },
+                    x: {
+                         title: {
+                            display: true,
+                            text: 'Year'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    axis: 'x',
+                    intersect: false
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
