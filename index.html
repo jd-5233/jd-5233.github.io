@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kirana Channel Insights Dashboard</title>
+    <title>Kirana Channel FMCG Insights & AI Solutions Dashboard | India</title>
+    <meta name="description" content="Explore India's Kirana channel dynamics for FMCG. Visualize market share, visibility challenges, Q-commerce competition & the impact of AI solutions.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Apply Inter font globally */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            /* Dark theme background */
+            background-color: #1f2937; /* gray-800 */
+            color: #f3f4f6; /* gray-100 - Default text color */
         }
         .chart-container {
             position: relative;
             height: 300px; /* Adjust height as needed */
             width: 100%;
         }
-        /* Custom card styling */
+        /* Custom card styling for dark theme */
         .dashboard-card {
-            background-color: white;
+            /* Slightly lighter dark background for cards */
+            background-color: #374151; /* gray-700 */
             border-radius: 0.75rem; /* Rounded corners */
             padding: 1.5rem; /* p-6 */
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Subtle shadow */
+            /* Lighter shadow for dark background */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
             transition: transform 0.2s ease-in-out;
             display: flex; /* Use flexbox for better internal alignment */
             flex-direction: column; /* Stack content vertically */
@@ -35,31 +41,47 @@
         .dashboard-card-content {
             flex-grow: 1; /* Allow content area to grow */
         }
+        /* KPI styling for dark theme */
         .kpi-value {
             font-size: 1.875rem; /* text-3xl */
             font-weight: 700; /* font-bold */
-            color: #1f2937; /* gray-800 */
+            /* Light text color for KPIs */
+            color: #f9fafb; /* gray-50 */
         }
         .kpi-label {
             font-size: 0.875rem; /* text-sm */
-            color: #6b7280; /* gray-500 */
+            /* Lighter gray for labels */
+            color: #d1d5db; /* gray-300 */
             margin-top: 0.25rem; /* mt-1 */
         }
+        /* Section title styling for dark theme */
         .section-title {
             font-size: 1.25rem; /* text-xl */
             font-weight: 600; /* font-semibold */
-            color: #111827; /* gray-900 */
+            /* Light text color for titles */
+            color: #f9fafb; /* gray-50 */
             margin-bottom: 1rem; /* mb-4 */
-            border-bottom: 2px solid #e5e7eb; /* border-gray-200 */
+            /* Lighter border color */
+            border-bottom: 2px solid #4b5563; /* gray-600 */
             padding-bottom: 0.5rem; /* pb-2 */
             flex-shrink: 0; /* Prevent title from shrinking */
         }
+        /* General text color adjustments */
+        .text-gray-600 { color: #d1d5db; /* gray-300 */ }
+        .text-gray-700 { color: #e5e7eb; /* gray-200 */ }
+        .text-gray-800 { color: #f9fafb; /* gray-50 */ }
+        .text-gray-500 { color: #9ca3af; /* gray-400 */ }
+
+        /* Chart.js Global Defaults for Dark Theme */
+        Chart.defaults.color = '#d1d5db'; // Default text color (axes, labels) - gray-300
+        Chart.defaults.borderColor = '#4b5563'; // Default border color (grid lines) - gray-600
+
     </style>
 </head>
 <body class="p-4 md:p-8">
 
-    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Kirana Channel Insights Dashboard</h1>
-    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold text-center text-gray-100 mb-8">Kirana Channel Insights Dashboard</h1>
+    <p class="text-center text-gray-300 mb-10 max-w-3xl mx-auto">
         Visualizing the challenges and opportunities within India's vast Kirana store network for FMCG distribution, based on insights regarding market dynamics, visibility gaps, and the potential of AI solutions. (Data is illustrative based on provided text).
     </p>
 
@@ -72,7 +94,8 @@
                     <div class="kpi-value">~92.6%</div>
                     <div class="kpi-label">Kirana Share of FMCG Sales (2023)</div>
                 </div>
-                 <div class="chart-container flex-grow" style="height: 200px;"> <canvas id="kiranaShareChart"></canvas>
+                 <div class="chart-container flex-grow" style="height: 200px;">
+                     <canvas id="kiranaShareChart"></canvas>
                 </div>
                 <div class="text-center mt-4">
                     <div class="kpi-value">12-15 M</div>
@@ -88,9 +111,9 @@
         <div class="dashboard-card md:col-span-1 lg:col-span-1">
             <h2 class="section-title">The Visibility Challenge</h2>
             <div class="dashboard-card-content space-y-4">
-                <p class="text-sm text-gray-600 mb-4">Lack of secondary & tertiary sales data creates significant hurdles.</p>
-                <h3 class="font-semibold text-gray-700">Key Hurdles:</h3>
-                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <p class="text-sm text-gray-300 mb-4">Lack of secondary & tertiary sales data creates significant hurdles.</p>
+                <h3 class="font-semibold text-gray-200">Key Hurdles:</h3>
+                <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
                     <li>Massive Scale (12-15M fragmented stores)</li>
                     <li>Low Technology Adoption at Retail Level</li>
                     <li>Manual Processes & Limited Data Capture</li>
@@ -98,17 +121,17 @@
                     <li>Complex Intermediary Layers</li>
                     <li>High Cost-to-Serve</li>
                 </ul>
-                 <h3 class="font-semibold text-gray-700 mt-4">Estimated Costs of Poor Visibility:</h3>
+                 <h3 class="font-semibold text-gray-200 mt-4">Estimated Costs of Poor Visibility:</h3>
                  <div class="grid grid-cols-2 gap-4 text-center">
                      <div>
-                         <div class="kpi-value text-red-600">High</div>
+                         <div class="kpi-value text-red-400">High</div>
                          <div class="kpi-label">Lost Sales due to Stockouts</div>
-                         <p class="text-xs text-gray-500">(Potential 65% reduction via AI)</p>
+                         <p class="text-xs text-gray-400">(Potential 65% reduction via AI)</p>
                      </div>
                       <div>
-                         <div class="kpi-value text-orange-600">High</div>
+                         <div class="kpi-value text-orange-400">High</div>
                          <div class="kpi-label">Inventory Mismanagement Costs</div>
-                         <p class="text-xs text-gray-500">(Potential 15-20% reduction via AI)</p>
+                         <p class="text-xs text-gray-400">(Potential 15-20% reduction via AI)</p>
                      </div>
                  </div>
             </div>
@@ -117,22 +140,22 @@
         <div class="dashboard-card md:col-span-2 lg:col-span-1">
             <h2 class="section-title">AI Solution Potential</h2>
             <div class="dashboard-card-content space-y-4">
-                <p class="text-sm text-gray-600 mb-4">AI agents offer enhanced visibility, prediction, and automation.</p>
+                <p class="text-sm text-gray-300 mb-4">AI agents offer enhanced visibility, prediction, and automation.</p>
                 <div class="grid grid-cols-2 gap-4 text-center">
                      <div>
-                        <div class="kpi-value text-green-600">20-50%</div>
+                        <div class="kpi-value text-green-400">20-50%</div>
                         <div class="kpi-label">Reduction in Forecast Errors</div>
                     </div>
                     <div>
-                        <div class="kpi-value text-green-600">15-20%</div>
+                        <div class="kpi-value text-green-400">15-20%</div>
                         <div class="kpi-label">Reduction in Inventory Costs</div>
                     </div>
                     <div>
-                        <div class="kpi-value text-green-600">5-10%</div>
+                        <div class="kpi-value text-green-400">5-10%</div>
                         <div class="kpi-label">Improvement in Fill Rates</div>
                     </div>
                      <div>
-                        <div class="kpi-value text-blue-600">~40%</div>
+                        <div class="kpi-value text-blue-400">~40%</div>
                         <div class="kpi-label">Potential Productivity Gains</div>
                     </div>
                 </div>
@@ -146,10 +169,11 @@
         <div class="dashboard-card md:col-span-2 lg:col-span-3">
             <h2 class="section-title">Competitive Landscape: Kirana vs. Q-Commerce</h2>
             <div class="dashboard-card-content">
-                <p class="text-sm text-gray-600 mb-4">The rise of data-driven Q-commerce intensifies the need for Kirana channel visibility.</p>
-                <div class="chart-container flex-grow"> <canvas id="marketShareTrendChart"></canvas>
+                <p class="text-sm text-gray-300 mb-4">The rise of data-driven Q-commerce intensifies the need for Kirana channel visibility.</p>
+                <div class="chart-container flex-grow">
+                    <canvas id="marketShareTrendChart"></canvas>
                 </div>
-                <p class="text-xs text-center text-gray-500 mt-2">Projected FMCG Market Share Trend (Illustrative)</p>
+                <p class="text-xs text-center text-gray-400 mt-2">Projected FMCG Market Share Trend (Illustrative)</p>
             </div>
         </div>
 
@@ -157,10 +181,11 @@
 
     <script>
         // Ensure charts are destroyed before re-rendering if script runs multiple times
-        if (window.kiranaShareChart instanceof Chart) {
+        // Check if the chart instance exists and is a Chart object
+        if (window.kiranaShareChart && typeof window.kiranaShareChart.destroy === 'function') {
             window.kiranaShareChart.destroy();
         }
-        if (window.marketShareTrendChart instanceof Chart) {
+        if (window.marketShareTrendChart && typeof window.marketShareTrendChart.destroy === 'function') {
             window.marketShareTrendChart.destroy();
         }
 
@@ -176,12 +201,12 @@
                     label: 'FMCG Sales Share (2023)',
                     data: [92.6, 7.4], // Based on text (92.6% Kirana)
                     backgroundColor: [
-                        '#3b82f6', // blue-500
-                        '#e5e7eb'  // gray-200
+                        '#60a5fa', // blue-400 (lighter blue for dark mode)
+                        '#4b5563'  // gray-600 (darker gray for contrast)
                     ],
                     borderColor: [
-                        '#ffffff',
-                        '#ffffff'
+                        '#374151', // Card background color (gray-700)
+                        '#374151'
                     ],
                     borderWidth: 2
                 }]
@@ -195,7 +220,8 @@
                         position: 'bottom',
                         labels: {
                            boxWidth: 12,
-                           padding: 15
+                           padding: 15,
+                           color: '#d1d5db' // Legend text color (gray-300)
                         }
                     },
                     tooltip: {
@@ -225,21 +251,22 @@
                 datasets: [
                     {
                         label: 'Kirana Share (%)',
-                        data: [92.6, 91.8, 91, 90.2, 89.5, 88.8], // Illustrative decline towards <90% by 2028
-                        borderColor: '#3b82f6', // blue-500
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        data: [92.6, 91.8, 91, 90.2, 89.5, 88.8], // Illustrative decline
+                        borderColor: '#60a5fa', // blue-400
+                        backgroundColor: 'rgba(96, 165, 250, 0.2)', // Lighter blue fill
                         fill: true,
-                        tension: 0.3
+                        tension: 0.3,
+                        pointBackgroundColor: '#60a5fa', // Point color
                     },
                     {
                         label: 'Q-commerce Share (%)',
-                        data: [5, 10, 18, 25, 32, 40], // Illustrative growth towards 40% by 2028 (adjusted start based on "single digits")
-                        borderColor: '#10b981', // emerald-500
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        data: [5, 10, 18, 25, 32, 40], // Illustrative growth
+                        borderColor: '#34d399', // emerald-400 (lighter green)
+                        backgroundColor: 'rgba(52, 211, 153, 0.2)', // Lighter green fill
                         fill: true,
-                        tension: 0.3
+                        tension: 0.3,
+                        pointBackgroundColor: '#34d399', // Point color
                     }
-                    // Could add 'Other Channels' as a third line if desired
                 ]
             },
             options: {
@@ -251,23 +278,43 @@
                         max: 100, // Percentage scale
                         title: {
                             display: true,
-                            text: 'Market Share (%)'
+                            text: 'Market Share (%)',
+                            color: '#d1d5db' // Axis title color
+                        },
+                        grid: {
+                            color: '#4b5563' // Grid line color (gray-600)
+                        },
+                        ticks: {
+                            color: '#d1d5db' // Tick label color
                         }
                     },
                     x: {
                          title: {
                             display: true,
-                            text: 'Year'
+                            text: 'Year',
+                            color: '#d1d5db' // Axis title color
+                        },
+                         grid: {
+                            color: '#4b5563' // Grid line color (gray-600)
+                        },
+                        ticks: {
+                            color: '#d1d5db' // Tick label color
                         }
                     }
                 },
                 plugins: {
                     legend: {
                         position: 'top',
+                        labels: {
+                           color: '#d1d5db' // Legend text color (gray-300)
+                        }
                     },
                     tooltip: {
                         mode: 'index',
                         intersect: false,
+                        backgroundColor: '#1f2937', // Tooltip background (gray-800)
+                        titleColor: '#f9fafb', // Tooltip title color (gray-50)
+                        bodyColor: '#d1d5db', // Tooltip body color (gray-300)
                     }
                 },
                 interaction: {
